@@ -1,0 +1,40 @@
+.Card {
+    color: #426A7D;
+    text-decoration: none;
+    background-color: #D4F1FF;
+    margin: 10px 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.Cardh {
+text-decoration: none;
+}
+
+.Cardspan {
+    text-decoration: none;
+    margin-right: 7px;
+}
+
+.CardH5 {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.CardNombre {
+    font-size: 23px;
+}
+span {
+    font-size: 17px;
+}
+
+.CardH5Weight {
+    display: inline-block;
+    font-size: 14px;
+}
+
+.CardTemp {
+    font-size: 14px;
+    margin-left: 4px;
+    margin-right: 4px;
+}

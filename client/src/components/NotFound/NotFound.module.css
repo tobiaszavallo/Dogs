@@ -1,0 +1,29 @@
+.NotFound {
+    background-color: #9bc8df;
+    height: 790px;
+}
+
+.NotFound img {
+    margin-top: 70px;
+}
+
+.buttonVolver {
+    background-color: #2e6e9b;
+    border: none;
+    color: #c0dbee;
+    padding: 10px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 19px;
+    margin-left: 90px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    opacity: 100;
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    height: 40px;
+    width: 150px;
+}

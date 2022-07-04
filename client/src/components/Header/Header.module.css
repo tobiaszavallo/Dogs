@@ -1,0 +1,54 @@
+.Header {
+    background-color: #2e4855c2;
+    margin: 0px;
+    padding: 40px;
+    text-decoration: none;
+}
+
+
+/* .HeaderDiv {
+    display: inline-block;
+    background-color: green;
+    border-style: solid;
+    border-color: darkgoldenrod;
+} */
+
+.HeaderContainerH1a {
+    display: flex;
+    align-items: flex-start;
+    display: inline-block;
+    margin-right: 350px;
+    margin-left: 0px;
+    text-decoration: none;
+    border-style: solid;
+}
+
+.HeaderContainerH1b {
+    display: flex;
+    align-items: flex-start;
+    display: inline-block;
+    margin-right: 250px;
+    margin-left: 50px;
+    text-decoration: none;
+}
+
+.HeaderContainerH1c {
+    display: flex;
+    align-items: flex-start;
+    display: inline-block;
+    margin-right: 0px;
+    margin-left: 150px;
+    text-decoration: none;
+}
+
+.HeaderContainerH1 h1 {
+    background-color: aquamarine;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    color: yellow;
+}
+
+.HeaderH1 {
+    text-decoration: none;
+}

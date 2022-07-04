@@ -1,0 +1,26 @@
+.SearchBar {
+    background-color:#74a0b4;
+    margin: 0px;
+    padding-top: 10px;
+    margin: 0px 25px;
+}
+
+.SearchBarButton {
+    display: inline-block;
+  padding: 10px 20px;
+  margin: 0px 10px; 
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;	
+  text-decoration: none;
+  outline: none;
+  color: #9dc9dd;
+  background-color: #446d80af;
+  border: none;
+  border-radius: 3px;
+}
+
+.SearchBarInput {
+  padding: 10px;
+  font-size: 15px;
+}

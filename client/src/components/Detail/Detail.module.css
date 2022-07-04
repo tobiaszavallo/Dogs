@@ -1,0 +1,104 @@
+.Detail {
+    color: #254053;
+    background-color: #9bc8df;
+}
+
+
+.DivContainer {
+    background-color: #74a0b4;
+    margin: 20px 30px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 35px;
+    margin-bottom: 0px;
+}
+
+
+.DetailImg {
+    display: block;
+    margin-left: auto; 
+    margin-right: auto;
+    border-style: solid; 
+}
+
+.DivContainer h2 {
+    display: inline-block;
+}
+
+.DivContainer h3 {
+    display: inline-block;
+}
+
+.DivTemperaments h2 {
+    display: block;
+}
+
+.DivLifeExpectancy h2 {
+    margin-right: 22px;
+}
+
+.DivHeight h2 {
+    margin-right: 50px;
+}
+
+.DivWeight h2{
+    margin-right: 50px;
+}
+
+.DivWeight {
+    margin-top: 20px;
+}
+
+.ButtonEliminar {
+    background-color: #E04338;
+    border: none;
+    color: #254053;
+    padding: 10px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 19px;
+    margin-top: 35px;
+    margin-bottom: 25px;
+    margin-left: 0px;
+    margin-right: 200px;
+    cursor: pointer;
+    opacity: 100;
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    height: 40px;
+    width: 150px;
+}
+
+.ButtonEditar {
+    background-color: #4a99d1;
+    border: none;
+    color: #254053;
+    padding: 10px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 19px;
+    margin-top: 35px;
+    margin-bottom: 25px;
+    margin-left: 25px;
+    cursor: pointer;
+    opacity: 100;
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    height: 40px;
+    width: 150px;
+}
+
+.DetailDivContainer {
+    margin-bottom: 20px;
+}
+
+.DivContainerResto {
+    background-color: #9bc8dfc9;
+    margin: 25px 100px;
+}
+

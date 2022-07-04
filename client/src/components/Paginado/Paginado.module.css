@@ -1,0 +1,23 @@
+.Paginado {
+    background-color: #9bc8df;
+    text-align:center;
+    padding-bottom: 40px;
+}
+
+.Paginadoul {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+.Paginadoli {
+    display: inline;
+}
+
+.PaginadoButton {
+    background-color: #446D80;
+    float: left;
+    padding: 5px 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
