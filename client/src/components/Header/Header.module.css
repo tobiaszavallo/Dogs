@@ -18,9 +18,9 @@
     align-items: flex-start;
     display: inline-block;
     margin-right: 350px;
-    margin-left: 0px;
+    margin-left: 5px;
     text-decoration: none;
-    border-style: solid;
+    transition: .5s;
 }
 
 .HeaderContainerH1b {
@@ -30,6 +30,7 @@
     margin-right: 250px;
     margin-left: 50px;
     text-decoration: none;
+    transition: .5s;
 }
 
 .HeaderContainerH1c {
@@ -39,16 +40,27 @@
     margin-right: 0px;
     margin-left: 150px;
     text-decoration: none;
+    width: 120px;
+    transition: .5s;
 }
 
 .HeaderContainerH1 h1 {
-    background-color: aquamarine;
     text-decoration: none;
     cursor: pointer;
     display: inline-block;
-    color: yellow;
+}
+
+.HeaderLink {
+    text-decoration: none;
 }
 
 .HeaderH1 {
-    text-decoration: none;
+   font-size: 40px;
+   color: rgb(238, 245, 255);
+   cursor: pointer;
+   transition-duration: 0.3s;
+}
+
+.HeaderH1:hover {
+    color: #d3e6f0;
 }

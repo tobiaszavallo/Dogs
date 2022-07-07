@@ -1,5 +1,6 @@
 import './App.css';
 import { Route, Switch } from "react-router-dom";
+import { BrowserRouter } from 'react-router-dom';
 import LandingPage from './components/LandingPage/LandingPage.jsx';
 import Home from './components/Home/Home.jsx';
 import NotFound from './components/NotFound/NotFound.jsx';
@@ -9,6 +10,7 @@ import About from './components/About/About.jsx';
 
 function App() {
   return (
+    <BrowserRouter>
     <div className="App">
       <Switch>
         <Route exact path={"/"} component={LandingPage}/>
@@ -19,6 +21,7 @@ function App() {
         <Route path={"/"} component={NotFound}/>
       </Switch>
     </div>
+    </BrowserRouter>
   );
 }
 

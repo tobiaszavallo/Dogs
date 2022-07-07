@@ -5,8 +5,10 @@ export const GET_TEMPERAMENTS = 'GET_TEMPERAMENTS';
 export const GET_BREEDS = 'GET_BREEDS';
 export const GET_NAME_DOGS = 'GET_NAME_DOGS';
 export const GET_DETAILS = 'GET_DETAILS';
+export const DETAILS_CLEAN = 'DETAILS_CLEAN';
 export const FILTER_BY_BREEDS = 'FILTER_BY_BREEDS';
 export const FILTER_BY_TEMPERAMENTS = 'FILTER_BY_TEMPERAMENTS';
+export const FILTER_DB_API = 'FILTER_DB_API';
 export const ORDER_BY_NAME = 'ORDER_BY_NAME';
 export const ORDER_BY_WEIGHT = 'ORDER_BY_WEIGHT';
 export const POST_DOG = 'POST_DOG';
@@ -75,6 +77,13 @@ export const getDetails = (id) => {
             console.log(e);
         }
     }
+};
+
+export const detailsClean = () => {
+    return {
+        type: DETAILS_CLEAN,
+        payload: {}
+    }
 }
 
 export const postDog = (payload) => {
@@ -129,6 +138,13 @@ export const filterDogsByTemperament = (temp) => {
                 console.log(e)
             }
         }
+    }
+};
+
+export const FilterDbApi = (payload) => {
+    return {
+        type: FILTER_DB_API,
+        payload 
     }
 };
 

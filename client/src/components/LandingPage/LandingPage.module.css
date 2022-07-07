@@ -1,4 +1,33 @@
 .Landing {
     color: black;
-    background-color: brown;
+    background-color: #74a0b4;
+    background-image: url("../../img/perrooo.jpg");
+    background-repeat: no-repeat;
+    background-size : 1280px   900px;
+    height: 760px;
+    margin-top: 0px;
 }
+
+.Landing button {
+    margin-top: 400px;
+}
+
+.Landing button {
+    margin-top: 400px;
+    background: transparent;
+    border: 2px solid #657175;
+    color: rgba(255, 255, 255, 0.993);
+    padding: 10px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 19px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    overflow: hidden;
+    height: 40px;
+}
+
+.Landing button:hover {
+    background-color: rgb(167, 187, 194);
+} 

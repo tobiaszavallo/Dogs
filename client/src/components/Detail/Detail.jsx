@@ -1,8 +1,8 @@
 import React from 'react';
 import { useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getDetails } from '../../redux/actions';
+import { getDetails, detailsClean } from '../../redux/actions';
 import img from '../../img/dogmeme.jpg';
 import Header from '../Header/Header';
 import {DeleteDog} from '../../redux/actions';
@@ -17,10 +17,10 @@ export default function Detail() {
 
     const handleDelete = (id) => {
         dispatch(DeleteDog(id))
+        dispatch(detailsClean())
         alert("Dog eliminado exitosamente");
         history.push("/home");
     };
-
 
     useEffect (() => {
         dispatch(getDetails(id))
@@ -29,9 +29,9 @@ export default function Detail() {
     return (
         <div className={styles.Detail}>
                 <Header/>
-            <div>
+            {/* <div className={styles.DivH1Dog}>
                 <h1>Dog detail</h1>
-            </div>
+            </div> */}
             <div className={styles.DivContainer}>
                 {
                     details.length > 0 ? 

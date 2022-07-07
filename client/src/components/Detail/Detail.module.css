@@ -72,6 +72,10 @@
     width: 150px;
 }
 
+.ButtonEliminar:hover {
+    background-color: #f14e42;
+}
+
 .ButtonEditar {
     background-color: #4a99d1;
     border: none;
@@ -91,6 +95,10 @@
     overflow: hidden;
     height: 40px;
     width: 150px;
+}
+
+.ButtonEditar:hover {
+    background-color: #57abe7;       
 }
 
 .DetailDivContainer {

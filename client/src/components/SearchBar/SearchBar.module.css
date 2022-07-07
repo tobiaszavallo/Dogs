@@ -18,6 +18,12 @@
   background-color: #446d80af;
   border: none;
   border-radius: 3px;
+  transition-duration: 0.4s;
+}
+
+.SearchBarButton:hover {
+  background-color: #638291af;
+  color: #acd0e0;
 }
 
 .SearchBarInput {

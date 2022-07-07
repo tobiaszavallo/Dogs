@@ -1,8 +1,8 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector} from 'react-redux';
-import { postDog } from '../../redux/actions';
+import { postDog, getTemperaments, getBreeds } from '../../redux/actions';
 import Header from '../Header/Header.jsx';
 import styles from './CreateDog.module.css';
 
@@ -42,7 +42,7 @@ const validate = (input) => {
     } else if (!/^[0-9]+$/i.test(input.añosDeVida)) {
         errors.años_de_vida = 'El campo *Esperanza de vida solo admite números';
     } else if (parseInt(input.añosDeVida) <= 0 || parseInt(input.añosDeVida) > 30) {
-        errors.años_de_vida = 'La esperanza de vida tiene que ser mayor a 0 y menor de 30 años';
+        errors.años_de_vida = 'La esperanza de vida tiene que ser mayor a 0 y como máximo 30 años';
     } else if (input.imagen && !/^(ftp|http|https):\/\/[^ "]+$/.test(input.imagen)) {
         errors.imagen = 'La URL ingresada en el campo *Imagen es incorrecta'
     } else if (input.imagen.length > 250) {
@@ -60,8 +60,16 @@ export default function CreateDog (){
     const dispatch = useDispatch();
     const history = useHistory();
     const temperamentos = useSelector((state) => state.temperaments);
+    const breeds = useSelector((state) => state.breeds);
     const [errors, setErrors] = useState({});
-    //const [submitBtn, setSubmitBtn] = useState("true");
+
+
+    useEffect (() => {
+        if (!temperamentos.length || !breeds.length) {
+            dispatch(getTemperaments())
+            dispatch(getBreeds())
+        }
+    },[dispatch, temperamentos, breeds]);
 
     const [input, setInput] = useState({
         nombre: "",
@@ -84,38 +92,35 @@ export default function CreateDog (){
         setInput((prev) => ({
             ...prev,
             [e.target.name]: e.target.value,
-            altura: `${input.alturaMin} - ${input.alturaMax} CM`,
-            peso: `${input.pesoMin} - ${input.pesoMax} KG`,
-            años_de_vida: `${input.añosDeVida} YEARS`
+            altura: `${e.target.name === "alturaMin" ? e.target.value : input.alturaMin} - ${e.target.name === "alturaMax" ? e.target.value : input.alturaMax} CM`,
+            peso: `${e.target.name === "pesoMin" ? e.target.value : input.pesoMin} - ${e.target.name === "pesoMax" ? e.target.value : input.pesoMax} KG`,
+            años_de_vida: `${e.target.name === 'añosDeVida' ? e.target.value : input.añosDeVida} - YEARS`
         }))
         setErrors(() => (validate({
             ...input,
             [e.target.name]: e.target.value
         })));
-        /* if(input.nombre === "") {
-            setSubmitBtn(() => "true")
-        } else if (Object.entries(errors).length > 0) {
-            setSubmitBtn(() => "true")
-        } else {
-            setSubmitBtn(() => "")
-        } */
        
     }
 
-    const handleCheck = (e) => {
-        e.preventDefault();
-        if (e.target.checked) {
-            setInput((prev) => ({
-                ...prev,
-                grupo_raza: e.target.value
-            }))
-        }
-    }
-
     const handleSelect = (e) => {
+            if (input.temperamento.includes(e.target.value) || input.temperamento.length >= 10) {
+                setInput((prev) => ({
+                    ...prev
+                }))
+            } else {
+                setInput((prev) => ({
+                    ...prev,
+                    temperamento: [...input.temperamento, e.target.value]
+                }))
+            } 
+    };
+
+    const handleSelectBreed = (e) => {
+        e.preventDefault();
         setInput((prev) => ({
             ...prev,
-            temperamento: [...input.temperamento, e.target.value]
+            grupo_raza: e.target.value
         }))
     }
 
@@ -175,7 +180,7 @@ export default function CreateDog (){
                             )
                         }
                     </div>
-                    <div>
+                    <div className={styles.DivAltura}>
                         <label className={styles.LabelAltura}>*Altura (centimetros):</label>
                         <label>*Min </label><input
                         className={styles.InputAltura}
@@ -216,57 +221,16 @@ export default function CreateDog (){
                             )
                         }
                     </div>
-                    <div className={styles.LabelDiv}>
-                        <label className={styles.LabelGrupoDeRaza}>Grupo de Raza:</label>
-                        <label className={styles.LabelToy}>
-                        <input 
-                        type="checkbox"
-                        name="Toy"
-                        value="Toy"
-                        onChange= {(e) => handleCheck(e)}
-                        />Toy</label>
-                        <label><input
-                        type="checkbox"
-                        name="Hound"
-                        value="Hound"
-                        onChange= {(e) => handleCheck(e)}
-                        />Hound</label>
-                        <label><input
-                        type="checkbox"
-                        name="Terrier"
-                        value="Terrier"
-                        onChange= {(e) => handleCheck(e)}
-                        />Terrier</label>
-                        <label><input
-                        type="checkbox"
-                        name="Working"
-                        value="Working"
-                        onChange= {(e) => handleCheck(e)}
-                        />Working</label>
-                        <label><input
-                        type="checkbox"
-                        name="Mixed"
-                        value="Mixed"
-                        onChange= {(e) => handleCheck(e)}
-                        />Mixed</label>
-                        <label><input
-                        type="checkbox"
-                        name="Non-Sporting"
-                        value="Non-Sporting"
-                        onChange= {(e) => handleCheck(e)}
-                        />Non-Sporting</label>
-                        <label><input
-                        type="checkbox"
-                        name="Sporting"
-                        value="Sporting"
-                        onChange= {(e) => handleCheck(e)}
-                        />Sporting</label>
-                        <label><input
-                        type="checkbox"
-                        name="Herding"
-                        value="Herding"
-                        onChange= {(e) => handleCheck(e)}
-                        />Herding</label>
+                    <div className={styles.DivSelectGrupoDeRaza}>
+                        <label>Grupo de Raza: </label>
+                        <select onChange={(e) => handleSelectBreed(e)}>
+                            <option value="">Select</option>
+                            {  
+                                breeds && breeds.map(breed => (
+                                <option name={breed} value={breed} key={breed}>{breed}</option>  
+                                )) 
+                            }
+                        </select>
                     </div>
                     <div className={styles.DivEsperanzaVida}>
                         <label>*Esperanza de vida: </label>
@@ -300,16 +264,19 @@ export default function CreateDog (){
                         <label>Temperamentos:</label>
                         <select multiple onChange={(e) => handleSelect(e)}>
                             {temperamentos && temperamentos.map(t => (
-                            <option value={t.nombre}>{t.nombre} </option>  
+                            <option name={t.nombre} value={t.nombre} key={t.nombre}>{t.nombre}</option>  
                             ))}
                         </select>
                     </div>
                     <button className={Object.entries(errors).length > 0 ? styles.ButtonCreateOff : styles.ButtonCreateOn } type="submit">Crear Dog</button>
                 </form>
                 {
+                    input.temperamento.length > 0 && <p>(Recuerda que puedes agregar hasta 10 temperamentos)</p>
+                }
+                {
                     input.temperamento && input.temperamento.map(temp => (
-                        <div className={styles.divButtonTemps}>
-                            <button className={styles.ButtonTemperaments}onClick={() => handleDelete(temp)}>{temp}</button>
+                        <div className={styles.divButtonTemps} key={`${temp} a`}>
+                            <button className={styles.ButtonTemperaments}onClick={() => handleDelete(temp)}>{temp} </button>
                         </div>
                     ))
                 }

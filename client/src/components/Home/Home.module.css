@@ -13,6 +13,10 @@
 
 .HomeSelect {
     cursor: pointer;
+    width: 130px;
+    height: 30px;
+    margin-right: 15px;
+    color: rgba(22, 21, 21, 0.918);
 }
 
 .HomeContenedorCards {
@@ -24,6 +28,10 @@
     margin: 25px;
 }
 
+.CardStylesText {
+    text-decoration: none;
+}
+
 .HomeDogh1 {
     color: #355a6b;
     font-size: 40px;
@@ -31,4 +39,12 @@
 
 .DivMensajeBusquedaVacia {
   padding-bottom: 300px;
+}
+
+.CreatedSelect {
+    cursor: pointer;
+    width: 130px;
+    height: 30px;
+    margin-right: 15px;
+    color: rgba(22, 21, 21, 0.918);
 }

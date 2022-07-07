@@ -5,6 +5,14 @@
     margin: 10px 10px;
     padding-top: 5px;
     padding-bottom: 5px;
+    word-wrap: break-word;
+    width: 260px;
+    height: 580px;
+    transition: .5s;
+}
+
+.Card:hover {
+    background-color: #b8d3e0;
 }
 
 .Cardh {
@@ -14,27 +22,35 @@ text-decoration: none;
 .Cardspan {
     text-decoration: none;
     margin-right: 7px;
+    word-wrap: break-word;
 }
 
 .CardH5 {
     text-decoration: none;
     display: inline-block;
+    word-wrap: break-word;
 }
 
 .CardNombre {
     font-size: 23px;
+    word-wrap: break-word;
+    text-decoration: none;
 }
 span {
     font-size: 17px;
+    text-decoration: none;
 }
 
 .CardH5Weight {
     display: inline-block;
     font-size: 14px;
+    text-decoration: none;
+    word-wrap: break-word;
 }
 
 .CardTemp {
     font-size: 14px;
     margin-left: 4px;
     margin-right: 4px;
+    text-decoration: none;
 }

@@ -129,7 +129,7 @@ router.post('/dogs', async (req, res) => {
 
     if( !nombre || altura.length < 8 || peso.length < 8 ) return res.status(400).send('Falta enviar datos obligatorios');
     const primerLetraMayuscula = nombre.charAt(0).toUpperCase();
-    const restoString = nombre.slice(1);
+    const restoString = nombre.slice(1).toLowerCase();
     const nom = primerLetraMayuscula + restoString;
 
 

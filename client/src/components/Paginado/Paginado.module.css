@@ -15,9 +15,21 @@
 }
 
 .PaginadoButton {
-    background-color: #446D80;
+    background-color: #b3def1;
     float: left;
     padding: 5px 10px;
     text-decoration: none;
     cursor: pointer;
+}
+
+.PaginadoButtonOff {
+    background-color:#446D80;
+    float: left;
+    padding: 5px 10px;
+    text-decoration: none;
+    cursor: pointer;      
+}
+
+.PaginadoButtonOff:hover {
+    background-color:#9fbecc;
 }

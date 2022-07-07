@@ -2,7 +2,8 @@ import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getDogs, getTemperaments, getBreeds, filterDogsByBreeds, 
-        orderByName, filterDogsByTemperament, orderByWeight } from '../../redux/actions';
+        orderByName, filterDogsByTemperament, orderByWeight, 
+        FilterDbApi } from '../../redux/actions';
 import { Link } from 'react-router-dom';
 import Card from '../Card/Card.jsx';
 import Paginado from '../Paginado/Paginado';
@@ -36,20 +37,12 @@ export default function Home() {
     }
 
 
-
-
     //esto es lo mismo al mapDispatchToProps(dispatch)
-    // hace un componentDidMount()
-    useEffect (() => {
-        dispatch(getDogs())
-    },[dispatch]);
-
+    // hace como un componentDidMount() o componentDidUpdate()
     useEffect (() => {
         dispatch(getTemperaments())
-    },[dispatch]);
-
-    useEffect (() => {
         dispatch(getBreeds())
+        dispatch(getDogs())
     },[dispatch]);
 
     let handleFilterBreeds = (e) => {
@@ -62,20 +55,28 @@ export default function Home() {
     let handleFilterTemperaments = (e) => {
         e.preventDefault();
         dispatch(filterDogsByTemperament(e.target.value));
-        //setCurrentPage(1);
+        setCurrentPage(1);
     }
 
     let handleOrderName = (e) => {
         e.preventDefault();
         dispatch(orderByName(e.target.value));
-        //setCurrentPage(1);
         setRender(e.target.value);
+        setCurrentPage(1);
     }
 
     let handleOrderByWeight = (e) => {
         e.preventDefault();
         dispatch(orderByWeight(e.target.value));
         setRender(e.target.value);
+        setCurrentPage(1);
+    }
+
+    let handleFilterDbApi = (e) => {
+        console.log(e.target.value)
+        e.preventDefault();
+        dispatch(FilterDbApi(e.target.value))
+        setCurrentPage(1);
     }
 
     return (
@@ -87,33 +88,38 @@ export default function Home() {
             <div>
                 <div className={styles.HomeSelectContainer}>
                 <select className={styles.HomeSelect} name='nombres' id='alphabetical' onChange={e => handleOrderName(e)}>
-                    <option value= 'asc'>A - Z</option>
-                    <option value= 'desc'>Z - A</option>
+                    <option key="asc" value= 'asc'>A - Z</option>
+                    <option key="desc" value= 'desc'>Z - A</option>
                 </select>
                 <select className={styles.HomeSelect} name='peso' id='weight' ref={text_default} onChange={e => handleOrderByWeight(e)}>
-                    <option value= 'AllPeso'>All</option>
-                    <option value= 'pesoMayor'>Mayor peso</option>
-                    <option value= 'pesoMenor'>Menor peso</option>
+                    <option key="AllPeso" value= 'AllPeso'>All</option>
+                    <option key="pesoMayor" value= 'pesoMayor'>Greater weight</option>
+                    <option key="pesoMenor" value= 'pesoMenor'>Lower weight</option>
                 </select>
                 <select className={styles.HomeSelect} name='temperamentos' id='temperaments' ref={text_default} onChange={e => handleFilterTemperaments(e)}>
-                    <option value='AllTemperaments'>All</option>
+                    <option key="AllTemperaments" value='AllTemperaments'>All</option>
                     {                           
                         allTemperaments && allTemperaments.map(temperament => {
                             return (
-                                <option value= {temperament.nombre}>{temperament.nombre}</option>
+                                <option key={temperament.nombre} value= {temperament.nombre}>{temperament.nombre}</option>
                             )
                         })
                     }
                 </select>
                 <select className={styles.HomeSelect} name='razas' id='breeds' ref={text_default} onChange={e => handleFilterBreeds(e)}>
-                    <option value='allRazas'>All breeds</option>
+                    <option key="allRazas" value='allRazas'>All breeds</option>
                     {
                         allBreeds && allBreeds.map(breed => {
                             return (
-                                <option value= {breed}>{breed}</option>
+                                <option key={breed} value= {breed}>{breed}</option>
                             )
                         })
                     }
+                </select>
+                <select className={styles.CreatedSelect} onChange={e => handleFilterDbApi(e)}>
+                    <option name='All' key="AllCreate" value='All'>All</option>
+                    <option name='InApi' key="InApi" value="InApi">Api</option>
+                    <option name='Created' key="Created" value="Created">Created</option>
                 </select>
                 </div>
                 <h1 className={styles.HomeDogh1}>Dogs breeds</h1>
@@ -121,10 +127,10 @@ export default function Home() {
                 {   
                     currentDogs && currentDogs.map(dog => {
                         return (
-                            <div>
-                                <Link to={`/home/${dog.id}`}>
+                            <div key={dog.id}>
+                                <Link className={styles.CardStylesText} to={`/home/${dog.id}`}>
                                 <Card imagen={dog.imagen} nombre={dog.nombre} grupo_raza={dog.grupo_raza} 
-                                temperamentos={!dog.creadoEnDb ? dog.temperamento : dog.temperamentos.map(el => " " + el.nombre).toString().slice(1)} peso={dog.peso} key={dog.id}/>
+                                temperamentos={!dog.creadoEnDb ? dog.temperamento : dog.temperamentos.map(el => " " + el.nombre).toString().slice(1)} peso={dog.peso} />
                                 </Link>
                             </div>
                         )    
@@ -135,6 +141,7 @@ export default function Home() {
                 dogsPerPage= {dogsPerPage} 
                 allDogs= {allDogs.length}
                 paginado= {paginado}
+                currentPage= {currentPage}
                 />
                 {
                     !allDogs && <div className={styles.DivMensajeBusquedaVacia}><h2>Lo sentimos, no hemos encontrado ese dog!</h2></div> 

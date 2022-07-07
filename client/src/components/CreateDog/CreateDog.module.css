@@ -2,15 +2,16 @@
     color: #254053;
     background-color: #9bc8df;
     margin-bottom: 0px;
+    height: 950px;
 }
 
 .ButtonTemperaments {
-    background-color: lawngreen;
+    background-color: rgba(90, 207, 90, 0.781);
     cursor: pointer;
 }
 
 .ButtonTemperaments:hover {
-    background-color: red;
+    background-color: rgb(214, 45, 45);
 }
 
 .ButtonCreateOn {
@@ -22,7 +23,10 @@
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 25px 25px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    margin-left: 25px;
+    margin-right: 25px;
     cursor: pointer;
     opacity: 100;
     transition-duration: 0.4s;
@@ -30,6 +34,10 @@
     overflow: hidden;
     height: 40px;
 }
+
+.ButtonCreateOn:hover {
+    background-color: rgb(40, 180, 226);
+} 
 
 .ButtonCreateOff {
     background-color: lightskyblue;
@@ -56,7 +64,7 @@
     margin-left: 20px;
     margin-bottom: 0px;
     padding: 20px 20px;
-    height: 600px;
+    height: 650px;
 }
 
 .CreatoDogSpan {
@@ -78,8 +86,13 @@
     font-size: 20px;
 }
 
+.DivAltura {
+    padding-right: 50px;
+}
+
 .DivPeso {
     margin-top: 20px;
+    padding-left: 55px;
 }
 
 .LabelAltura {
@@ -126,19 +139,31 @@
 
 .divButtonTemps {
     display: inline-block;
-    margin-top: 25px;
+    margin-top: 15px;
     border-radius: 10px;
+    margin-bottom: 25px;
+}
+
+.ButtonTemperaments {
+    font-size: 15px;
+    margin-top: 0px;
+    margin-right: 3px;
+    padding: 3px;
+}
+
+.DivEsperanzaVida {
+    margin-right: 137px;
 }
 
 .DivEsperanzaVida label {
     font-size: 25px;
-    margin-right: 30px;
+    margin-right: 70px;
     margin-left: 0px;
 
 }
 
 .DivEsperanzaVida input {
-    width: 200px;
+    width: 100px;
     font-size: 20px;
 }
 
@@ -166,5 +191,19 @@
     margin-right: 60px;
 }
 
+.DivSelectGrupoDeRaza {
+    padding-right: 110px;
+    margin-bottom: 20px;
+}
+
+.DivSelectGrupoDeRaza select {
+    font-size: 18px;
+    margin-left: 30px;
+}
+
+.DivSelectGrupoDeRaza label {
+    font-size: 25px;
+    margin-right: 50px;
+}
 
 

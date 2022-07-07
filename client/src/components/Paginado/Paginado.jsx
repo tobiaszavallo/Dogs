@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Paginado.module.css';
 
-export default function Paginado({dogsPerPage, allDogs, paginado}) {
+export default function Paginado({dogsPerPage, allDogs, paginado, currentPage}) {
     const pageNumbers = [];
 
     for (let i=1; i<=Math.ceil(allDogs/dogsPerPage); i++) {
@@ -15,7 +15,7 @@ export default function Paginado({dogsPerPage, allDogs, paginado}) {
                 {
                     pageNumbers && pageNumbers.map( number => (
                         <li key={number} className={styles.Paginadoli}>
-                            <button className={styles.PaginadoButton} onClick={() => paginado(number)}>{number}</button>
+                            <button className={currentPage=== number ? styles.PaginadoButton : styles.PaginadoButtonOff} onClick={() => paginado(number)}>{number}</button>
                         </li>
                     ))
                 }
