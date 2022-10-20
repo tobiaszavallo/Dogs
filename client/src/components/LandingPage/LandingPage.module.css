@@ -1,15 +1,27 @@
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+body {
+    margin: 0;
+}
+
 .Landing {
-    color: black;
-    background-color: #74a0b4;
-    background-image: url("../../img/perrooo.jpg");
-    background-repeat: no-repeat;
-    background-size : 1280px   900px;
-    height: 760px;
-    margin-top: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-image: url("../../img/perrooo.jpg"); 
+
+    height: 83rem;
+    width: 100%;
+    background-size: cover;
 }
 
 .Landing button {
-    margin-top: 400px;
+    
 }
 
 .Landing button {

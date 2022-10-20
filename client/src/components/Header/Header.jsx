@@ -31,7 +31,7 @@ export default function Header() {
                 <div className={styles.HeaderContainerH1c}>
                     <Link className={styles.HeaderLink} to='/about'><h1 className={styles.HeaderH1}>About</h1></Link>    
                                              
-            </div>
+                </div>
         </div>
     )
 };

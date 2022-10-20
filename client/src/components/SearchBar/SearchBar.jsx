@@ -5,15 +5,14 @@ import { getNameDogs, getDogs } from '../../redux/actions';
 import styles from './SearchBar.module.css';
 
 
-export default function SearchBar() {
+export default function SearchBar({paginado}) {
     
     const dispatch = useDispatch();
     const [input, setInput] = useState('');
     
     const handleInputChange = (e) => {
         e.preventDefault();
-        setInput(e.target.value);
-        console.log(input);
+        setInput(() => ( e.target.value))
     }
 
     const handleSubmit = (e) => {
@@ -25,6 +24,7 @@ export default function SearchBar() {
         e.preventDefault();
         setInput('');
         dispatch(getDogs());
+        paginado(1);
     }
 
     return (

@@ -26,4 +26,9 @@
     overflow: hidden;
     height: 40px;
     width: 150px;
+    transition-duration: 0.4s;
+}
+
+.buttonVolver:hover {
+    background-color: #5593c0;;
 }

@@ -1,10 +1,24 @@
-.Header {
+/* .Header {
     background-color: #2e4855c2;
     margin: 0px;
     padding: 40px;
     text-decoration: none;
+} */
+
+.Header {
+    display: flex;
+    justify-content: space-around;
+    background-color: #2e4855c2;
+    margin: 0;
+    padding: 40px;
 }
 
+@media ( max-width: 768px ) { 
+    .Header {
+        display: flex;
+        flex-direction: column;
+    }
+}
 
 /* .HeaderDiv {
     display: inline-block;
@@ -14,41 +28,24 @@
 } */
 
 .HeaderContainerH1a {
-    display: flex;
-    align-items: flex-start;
-    display: inline-block;
-    margin-right: 350px;
-    margin-left: 5px;
     text-decoration: none;
     transition: .5s;
 }
 
 .HeaderContainerH1b {
-    display: flex;
-    align-items: flex-start;
-    display: inline-block;
-    margin-right: 250px;
-    margin-left: 50px;
     text-decoration: none;
     transition: .5s;
 }
 
 .HeaderContainerH1c {
-    display: flex;
-    align-items: flex-start;
-    display: inline-block;
-    margin-right: 0px;
-    margin-left: 150px;
     text-decoration: none;
-    width: 120px;
     transition: .5s;
 }
 
 .HeaderContainerH1 h1 {
     text-decoration: none;
     cursor: pointer;
-    display: inline-block;
-}
+} 
 
 .HeaderLink {
     text-decoration: none;

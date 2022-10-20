@@ -61,7 +61,7 @@ export default function Detail() {
                 {
                     details.length > 0 && details[0].creadoEnDb && <div>
                     <button className={styles.ButtonEliminar} onClick={() => handleDelete(id)}>Eliminar</button>
-                    <button className={styles.ButtonEditar}>Editar</button>
+                    {/* <button className={styles.ButtonEditar}>Editar</button> */}
                 </div> 
                 }
             </div>

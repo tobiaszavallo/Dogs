@@ -84,7 +84,7 @@ export const detailsClean = () => {
         type: DETAILS_CLEAN,
         payload: {}
     }
-}
+};
 
 export const postDog = (payload) => {
     return async function(dispatch) {
@@ -161,3 +161,4 @@ export const DeleteDog = (id) => {
         }
     }
 };
+

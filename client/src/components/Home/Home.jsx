@@ -40,10 +40,12 @@ export default function Home() {
     //esto es lo mismo al mapDispatchToProps(dispatch)
     // hace como un componentDidMount() o componentDidUpdate()
     useEffect (() => {
-        dispatch(getTemperaments())
-        dispatch(getBreeds())
-        dispatch(getDogs())
-    },[dispatch]);
+        if (allDogs.length === 0) {
+            dispatch(getTemperaments())
+            dispatch(getBreeds())
+            dispatch(getDogs())
+        }
+    },[dispatch, allDogs]);
 
     let handleFilterBreeds = (e) => {
         e.preventDefault();
@@ -83,7 +85,7 @@ export default function Home() {
         <div className={styles.Home}>
             <Header/>
             <div>
-                <SearchBar />
+                <SearchBar paginado= {paginado}/>
             </div>
             <div>
                 <div className={styles.HomeSelectContainer}>

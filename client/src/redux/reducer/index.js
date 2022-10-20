@@ -23,7 +23,7 @@ const rootReducer = (state = initialState, action) => {
             }
             case GET_TEMPERAMENTS:
                 let temperaments_purificados = action.payload.filter(el => el.nombre !== null && el.nombre !== undefined && 
-                    el.nombre !== '' && el.id !== 37 && el.id !== 40 && el.id !== 20);
+                    el.nombre !== '' && el.id !== 37 && el.id !== 40 && el.id !== 20 && el.id !== 19 && el.id !== 114);
                     
                 temperaments_purificados = temperaments_purificados.sort((a, b) => {
                     if (a.nombre > b.nombre) {

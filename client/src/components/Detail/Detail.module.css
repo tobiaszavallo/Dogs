@@ -54,7 +54,10 @@
     background-color: #E04338;
     border: none;
     color: #254053;
-    padding: 10px 22px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 22px;
+    padding-left: 22px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -62,7 +65,7 @@
     margin-top: 35px;
     margin-bottom: 25px;
     margin-left: 0px;
-    margin-right: 200px;
+    margin-right: 10px;
     cursor: pointer;
     opacity: 100;
     transition-duration: 0.4s;
